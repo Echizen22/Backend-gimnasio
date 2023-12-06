@@ -40,8 +40,9 @@ export class UsuarioService {
   }
 
   async findAll() {
-    return await this.usuarioModel.find()
-      .select('-__v');
+    return await this.usuarioModel.find<Usuario>()
+      .select('-__v')
+      .select('-password');
   }
 
   async findOne(term: string) {
@@ -49,7 +50,8 @@ export class UsuarioService {
 
     if ( isValidObjectId( term ) ) {
       usuario = await this.usuarioModel.findById( term )
-        .select('-__v');
+        .select('-__v')
+        .select('-password');
     }
 
     if ( !usuario ) {
