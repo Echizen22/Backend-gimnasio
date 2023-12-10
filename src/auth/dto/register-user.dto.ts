@@ -24,6 +24,9 @@ export class RegisterUserDto {
     @Type(() => Date)
     fechaNacimiento: Date;
 
+    @IsString()
+    plan: string;
+    
     @IsNumber()
     @Type(() => Number)
     telefono: number;

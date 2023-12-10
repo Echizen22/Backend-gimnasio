@@ -24,7 +24,6 @@ export class Usuario extends Document {
     @Prop({
         type: String,
         required: true,
-        maxlength: 15,
     })
     apellidos: string;
 
@@ -40,6 +39,12 @@ export class Usuario extends Document {
         type: Date,
     })
     fechaNacimiento: Date;
+
+    @Prop({
+        type: String,
+        required: true,
+    })
+    plan: string;
     
     @Prop({
         type: Number,

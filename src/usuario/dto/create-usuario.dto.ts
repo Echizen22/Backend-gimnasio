@@ -1,5 +1,5 @@
 import { Transform, Type } from "class-transformer";
-import { IsBoolean, IsDate, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional, IsPhoneNumber, IsString, Length, MaxLength } from "class-validator";
+import { IsBoolean, IsDate, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateUsuarioDto {
 
@@ -23,6 +23,10 @@ export class CreateUsuarioDto {
     @IsDate()
     @Type(() => Date)
     fechaNacimiento: Date;
+
+    @IsString()
+    @IsNotEmpty()
+    plan: string;
 
     @IsNumber()
     @Type(() => Number)

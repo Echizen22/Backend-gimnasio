@@ -27,7 +27,7 @@ export class PlanService {
   }
 
   async findAll() {
-    return await this.planModel.find();
+    return await this.planModel.find().select('-__v');
   }
 
 
@@ -40,7 +40,7 @@ export class PlanService {
     }
 
     if( !plan && isValidObjectId(term) ) {
-      plan = await this.planModel.findById( term );
+      plan = await this.planModel.findById( term ).select('-__v');
     }
       
     if( !plan ){

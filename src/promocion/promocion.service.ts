@@ -25,7 +25,8 @@ export class PromocionService {
   }
 
   async findAll() {
-    return this.promocionModel.find();
+    return this.promocionModel.find()
+            .select('-__v');
   }
 
   async findOne(term: string) {
@@ -37,7 +38,7 @@ export class PromocionService {
     }
 
     if( !promocion && isValidObjectId(term) ) {
-      promocion = await this.promocionModel.findById( term );
+      promocion = await this.promocionModel.findById( term ).select('-__v');
     }
 
     if( !promocion ) {

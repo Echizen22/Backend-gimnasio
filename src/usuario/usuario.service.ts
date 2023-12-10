@@ -40,9 +40,16 @@ export class UsuarioService {
   }
 
   async findAll() {
-    return await this.usuarioModel.find<Usuario>()
-      .select('-__v')
-      .select('-password');
+
+    let usuarios: Usuario[];
+    usuarios = await this.usuarioModel.find<Usuario>()
+                .select('-__v')
+                .select('-password');
+
+    usuarios = usuarios.filter((user) => user.superUsuario !== true);
+
+
+    return usuarios;
   }
 
   async findOne(term: string) {
