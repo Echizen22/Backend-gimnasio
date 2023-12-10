@@ -33,7 +33,13 @@ export class AuthService {
     if( !bcrypt.compareSync( password, usuario.password ) )
       throw new UnauthorizedException('Contraseña incorrecta');
 
+    if ( usuario.estado === 'B' ) {
+      throw new UnauthorizedException('Lo sentimos, pero no puedes iniciar sesión en este momento. Parece que tu cuenta en My Gym está actualmente inactiva.');
+    }
+
     const { password:_ , ...rest} = usuario.toJSON();
+
+    
 
 
     return {
