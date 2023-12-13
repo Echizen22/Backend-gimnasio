@@ -22,24 +22,6 @@ export class Clase extends Document {
   @Prop({ enum: ['Principiante', 'Intermedio', 'Avanzado'] })
   nivelDificultad: string;
 
-//   @Prop({ required: true })
-//   capacidadMaxima: number;
-
-//   @Prop()
-//   ubicacion: string;
-
-//   @Prop()
-//   equipamientoNecesario: string;
-
-//   @Prop()
-//   imagen: string;
-
-//   @Prop({ type: [{ type: Types.ObjectId, ref: 'Usuario' }] })
-//   participantes: string[]; 
-
-//   @Prop({ type: Number, default: 0 })
-//   precio: number; 
-
 
 }
 
