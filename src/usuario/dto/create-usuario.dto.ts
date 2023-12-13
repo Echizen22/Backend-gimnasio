@@ -1,5 +1,5 @@
 import { Transform, Type } from "class-transformer";
-import { IsBoolean, IsDate, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { IsArray, IsBoolean, IsDate, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateUsuarioDto {
 
@@ -58,6 +58,10 @@ export class CreateUsuarioDto {
     @IsBoolean()
     @IsOptional()
     superUsuario?: boolean;
+
+    @IsOptional()
+    @IsArray()
+    readonly clasesReservadas?: string[];
 
 
 }

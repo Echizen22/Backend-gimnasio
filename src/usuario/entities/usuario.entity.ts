@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
+import { Document, Types } from "mongoose";
 
 
 @Schema()
@@ -92,6 +92,10 @@ export class Usuario extends Document {
         default: false,
     })
     superUsuario: boolean;
+
+
+    @Prop({ type: [{ type: Types.ObjectId, ref: 'Clase'}] })
+    clasesReservadas: string[];
 
 }
 

@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { PromocionModule } from './promocion/promocion.module';
 import { PlanModule } from './plan/plan.module';
 import { ConfigModule } from '@nestjs/config';
+import { ClaseModule } from './clase/clase.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ConfigModule } from '@nestjs/config';
     AuthModule,
     PromocionModule,
     PlanModule,
+    ClaseModule,
 
   ],
   controllers: [AppController],

@@ -81,10 +81,12 @@ export class UsuarioService {
     
     const usuario = await this.findOne( id );
 
+
     if ( usuario.password )
       usuario.password = bcrypt.hashSync( usuario.password, 10);
 
     try {
+
       await usuario.updateOne( updateUsuarioDto );
       return {  ...usuario.toJSON(), ...updateUsuarioDto }
     } catch (error) {
@@ -100,7 +102,7 @@ export class UsuarioService {
       const { deletedCount } = await this.usuarioModel.deleteOne({ _id: id });
   
       if ( deletedCount === 0 ) {
-        throw new BadRequestException(`Usuario con ${ id } no encontrado`)
+        throw new BadRequestException(`Usuario con ID ${ id } no encontrado`)
       }
       return;
     }
